@@ -4,9 +4,13 @@
            xmlns:tns="http://example.com/soap"
            elementFormDefault="qualified">
 
+    <!-- Requête pour récupérer tous les secteurs -->
     <xs:element name="getAllSectorsRequest" type="xs:string"/>
+
+    <!-- Réponse contenant la liste de secteurs -->
     <xs:element name="getAllSectorsResponse" type="tns:SectorList"/>
 
+    <!-- Requête pour récupérer une classe par son ID -->
     <xs:element name="getClassByIdRequest">
         <xs:complexType>
             <xs:sequence>
@@ -15,14 +19,17 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Réponse contenant une classe -->
     <xs:element name="getClassByIdResponse" type="tns:ClassType"/>
 
+    <!-- Liste de secteurs (utilisée dans la réponse) -->
     <xs:complexType name="SectorList">
         <xs:sequence>
             <xs:element name="sectors" type="tns:SectorType" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
+    <!-- Définition d’un secteur -->
     <xs:complexType name="SectorType">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
@@ -31,6 +38,7 @@
         </xs:sequence>
     </xs:complexType>
 
+    <!-- Définition d’une classe -->
     <xs:complexType name="ClassType">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
